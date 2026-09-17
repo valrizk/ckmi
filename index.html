@@ -1,443 +1,846 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  <meta name="theme-color" content="#151821">
-  <meta name="description" content="Vrizmods — katalog aplikasi, game, dan tools modern.">  <title>Vrizmods — Katalog Aplikasi & Game</title>  <link rel="icon" type="image/x-icon" href="/media/favico.ico">  <!-- Google Fonts -->  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <meta name="theme-color" content="#151821">
+
+  <meta
+    name="description"
+    content="Vrizmods — katalog aplikasi, game, dan tools modern."
+  >
+
+  <title>Vrizmods — Katalog Aplikasi & Game</title>
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/media/favico.ico"
+  >
+
+  <!-- =========================================================
+       GOOGLE FONTS
+       ========================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
-  >  <!-- Bootstrap -->  <link
+  >
+
+  <!-- =========================================================
+       BOOTSTRAP
+       ========================================================= -->
+  <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
-  >  <!-- Vrizmods UI -->  <link rel="stylesheet" href="/css/custom.css">
-</head><body>  <!-- =========================================================
+  >
+
+  <!-- =========================================================
+       VRIZMODS UI
+       ========================================================= -->
+  <link
+    rel="stylesheet"
+    href="/css/custom.css"
+  >
+
+  <!-- =========================================================
+       ADS RESPONSIVE STYLE
+       ========================================================= -->
+  <style>
+    /* =========================================================
+       AD CONTAINER
+       ========================================================= */
+
+    .vriz-ad {
+      width: 100%;
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .vriz-ad-label {
+      display: block;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 6px;
+    }
+
+    /* =========================================================
+       NATIVE AD
+       ========================================================= */
+
+    .native-ad {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* =========================================================
+       468x60 AD
+       ========================================================= */
+
+    .banner-ad {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .banner-ad iframe {
+      max-width: 100%;
+    }
+
+    /* =========================================================
+       SMARTLINK
+       ========================================================= */
+
+    .smartlink-wrapper {
+      margin: 20px 0;
+    }
+
+    .smartlink-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      width: 100%;
+      min-height: 52px;
+
+      padding: 13px 18px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #242936,
+          #191d27
+        );
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      color: #ffffff;
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.18);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .smartlink-button:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+
+      border-color:
+        rgba(255,255,255,0.15);
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .smartlink-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .smartlink-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .smartlink-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .smartlink-subtitle {
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      margin-top: 3px;
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 576px) {
+
+      .vriz-ad {
+        margin: 16px auto;
+      }
+
+      .native-ad {
+        min-height: 70px;
+      }
+
+      .banner-ad {
+        min-height: 60px;
+      }
+
+      .smartlink-button {
+        min-height: 50px;
+        padding: 12px 15px;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================================================
        HEADER
-       ========================================================= -->  <header class="vriz-navbar py-2 px-3 sticky-top"><div class="container-fluid max-w-lg">
+       ========================================================= -->
 
-  <div class="d-flex align-items-center justify-content-between">
+  <header class="vriz-navbar py-2 px-3 sticky-top">
 
-    <!-- BRAND AREA -->
-    <div class="d-flex align-items-center gap-3">
+    <div class="container-fluid max-w-lg">
+
+      <div class="d-flex align-items-center justify-content-between">
+
+        <!-- BRAND AREA -->
+
+        <div class="d-flex align-items-center gap-3">
+
+          <button
+            class="btn-icon"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#vrizDrawer"
+            aria-controls="vrizDrawer"
+            aria-label="Buka menu navigasi"
+          >
+
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke-linecap="round"
+              ></path>
+
+            </svg>
+
+          </button>
+
+          <a
+            class="vriz-brand"
+            href="/"
+            aria-label="Vrizmods Beranda"
+          >
+            Vriz<span>mods</span>
+          </a>
+
+        </div>
+
+
+        <!-- LOGO -->
+
+        <a
+          href="/"
+          aria-label="Vrizmods"
+        >
+
+          <img
+            src="/media/logo.png"
+            alt="Vrizmods"
+            class="vriz-logo-header"
+            onerror="this.style.display='none';"
+          >
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================================
+       OFFCANVAS NAVIGATION
+       ========================================================= -->
+
+  <div
+    class="offcanvas offcanvas-start vriz-drawer"
+    tabindex="-1"
+    id="vrizDrawer"
+    aria-labelledby="vrizDrawerTitle"
+  >
+
+    <!-- DRAWER HEADER -->
+
+    <div class="offcanvas-header px-4 py-3">
+
+      <div>
+
+        <div
+          class="offcanvas-title text-white fw-bold"
+          id="vrizDrawerTitle"
+        >
+          Vrizmods
+        </div>
+
+        <small class="text-secondary">
+          Navigasi utama
+        </small>
+
+      </div>
 
       <button
-        class="btn-icon"
         type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#vrizDrawer"
-        aria-controls="vrizDrawer"
-        aria-label="Buka menu navigasi"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"
+        aria-label="Tutup menu"
+      ></button>
+
+    </div>
+
+
+    <!-- DRAWER BODY -->
+
+    <div class="offcanvas-body px-3 pt-2">
+
+      <nav
+        class="d-flex flex-column"
+        aria-label="Navigasi utama"
       >
+
+        <!-- HOME -->
+
+        <a
+          href="/"
+          class="drawer-link active"
+        >
+
+          <svg
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path>
+
+          </svg>
+
+          <span>Beranda</span>
+
+        </a>
+
+
+        <!-- GAMES -->
+
+        <a
+          href="#"
+          class="drawer-link cat-drawer-btn"
+          data-cat="Games"
+        >
+
+          <svg
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z"
+            ></path>
+
+          </svg>
+
+          <span>Games</span>
+
+        </a>
+
+
+        <!-- APPS -->
+
+        <a
+          href="#"
+          class="drawer-link cat-drawer-btn"
+          data-cat="Apps"
+        >
+
+          <svg
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+            ></path>
+
+          </svg>
+
+          <span>Apps</span>
+
+        </a>
+
+
+        <!-- TOOLS -->
+
+        <a
+          href="#"
+          class="drawer-link cat-drawer-btn"
+          data-cat="Tools"
+        >
+
+          <svg
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31.826-2.37-2.37a1.724 1.724 0 001.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            ></path>
+
+          </svg>
+
+          <span>Tools</span>
+
+        </a>
+
+      </nav>
+
+
+      <!-- DRAWER FOOTER -->
+
+      <div class="mt-4 pt-3 border-top border-dark-subtle">
+
+        <small class="text-secondary">
+          Vrizmods
+        </small>
+
+        <div class="text-secondary small mt-1">
+          Aplikasi • Games • Tools
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
+
+  <main class="container-fluid max-w-lg px-3 py-4">
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <section
+      class="vriz-hero text-center mb-4"
+      aria-labelledby="heroTitle"
+    >
+
+      <div class="hero-content">
+
+        <span
+          class="d-inline-block mb-2 small fw-semibold text-secondary"
+        >
+          VRIZMODS
+        </span>
+
+        <h1
+          id="heroTitle"
+          class="hero-title mb-2"
+        >
+          Pustaka Aplikasi Modern
+        </h1>
+
+        <p class="hero-subtitle mb-4">
+          Temukan aplikasi, game, dan tools pilihan
+          dalam satu tempat.
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-wrapper mx-auto">
+
+          <svg
+            class="search-icon"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <circle
+              cx="11"
+              cy="11"
+              r="8"
+            ></circle>
+
+            <path
+              d="M21 21l-4.35-4.35"
+              stroke-linecap="round"
+            ></path>
+
+          </svg>
+
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Cari aplikasi atau game..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Cari aplikasi atau game"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         IKLAN 1 — NATIVE BANNER
+         ======================================================= -->
+
+    <div
+      class="vriz-ad native-ad"
+      id="nativeAd"
+    >
+
+      <div style="width:100%;">
+
+        <span class="vriz-ad-label">
+          Advertisement
+        </span>
+
+        <script
+          async="async"
+          data-cfasync="false"
+          src="https://versatilesentiment.com/b0c006a0f94ab96e5b23136c64075bec/invoke.js"
+        ></script>
+
+        <div
+          id="container-b0c006a0f94ab96e5b23136c64075bec"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         CATEGORY
+         ======================================================= -->
+
+    <section
+      class="category-nav-wrapper mb-4"
+      aria-label="Filter kategori"
+    >
+
+      <div
+        class="category-scroll"
+        id="categoryFilter"
+        role="tablist"
+        aria-label="Kategori aplikasi"
+      >
+
+        <button
+          type="button"
+          class="cat-chip active"
+          data-cat="ALL"
+          role="tab"
+          aria-selected="true"
+        >
+          Semua
+        </button>
+
+        <button
+          type="button"
+          class="cat-chip"
+          data-cat="Games"
+          role="tab"
+          aria-selected="false"
+        >
+          Games
+        </button>
+
+        <button
+          type="button"
+          class="cat-chip"
+          data-cat="Apps"
+          role="tab"
+          aria-selected="false"
+        >
+          Apps
+        </button>
+
+        <button
+          type="button"
+          class="cat-chip"
+          data-cat="Tools"
+          role="tab"
+          aria-selected="false"
+        >
+          Tools
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         IKLAN 2 — SMARTLINK
+         ======================================================= -->
+
+    <div class="smartlink-wrapper">
+
+      <a
+        class="smartlink-button"
+        href="https://versatilesentiment.com/icve7a2u?key=ab922a0e2ab02af3c547ceb6c4e4c54f"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        aria-label="Buka Smartlink"
+      >
+
         <svg
-          width="20"
-          height="20"
+          class="smartlink-icon"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-          <path
-            d="M4 6h16M4 12h16M4 18h16"
-            stroke-linecap="round"
-          ></path>
-        </svg>
-      </button>
 
-      <a
-        class="vriz-brand"
-        href="/"
-        aria-label="Vrizmods Beranda"
-      >
-        Vriz<span>mods</span>
+          <path
+            d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+
+        </svg>
+
+        <span class="smartlink-text">
+
+          <span class="smartlink-title">
+            Lanjutkan ke Download
+          </span>
+
+          <span class="smartlink-subtitle">
+            Klik untuk melanjutkan
+          </span>
+
+        </span>
+
       </a>
 
     </div>
 
 
-    <!-- LOGO -->
-    <a href="/" aria-label="Vrizmods">
-
-      <img
-        src="/media/logo.png"
-        alt="Vrizmods"
-        class="vriz-logo-header"
-        onerror="this.style.display='none';"
-      >
-
-    </a>
-
-  </div>
-
-</div>
-
-  </header>  <!-- =========================================================
-       OFFCANVAS NAVIGATION
-       ========================================================= -->  <div
-    class="offcanvas offcanvas-start vriz-drawer"
-    tabindex="-1"
-    id="vrizDrawer"
-    aria-labelledby="vrizDrawerTitle"
-  ><!-- DRAWER HEADER -->
-<div class="offcanvas-header px-4 py-3">
-
-  <div>
-
-    <div
-      class="offcanvas-title text-white fw-bold"
-      id="vrizDrawerTitle"
-    >
-      Vrizmods
-    </div>
-
-    <small class="text-secondary">
-      Navigasi utama
-    </small>
-
-  </div>
-
-  <button
-    type="button"
-    class="btn-close btn-close-white"
-    data-bs-dismiss="offcanvas"
-    aria-label="Tutup menu"
-  ></button>
-
-</div>
-
-
-<!-- DRAWER BODY -->
-<div class="offcanvas-body px-3 pt-2">
-
-  <nav
-    class="d-flex flex-column"
-    aria-label="Navigasi utama"
-  >
-
-    <!-- HOME -->
-    <a
-      href="/"
-      class="drawer-link active"
-    >
-
-      <svg
-        width="18"
-        height="18"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-        ></path>
-      </svg>
-
-      <span>Beranda</span>
-
-    </a>
-
-
-    <!-- GAMES -->
-    <a
-      href="#"
-      class="drawer-link cat-drawer-btn"
-      data-cat="Games"
-    >
-
-      <svg
-        width="18"
-        height="18"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z"
-        ></path>
-      </svg>
-
-      <span>Games</span>
-
-    </a>
-
-
-    <!-- APPS -->
-    <a
-      href="#"
-      class="drawer-link cat-drawer-btn"
-      data-cat="Apps"
-    >
-
-      <svg
-        width="18"
-        height="18"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-        ></path>
-      </svg>
-
-      <span>Apps</span>
-
-    </a>
-
-
-    <!-- TOOLS -->
-    <a
-      href="#"
-      class="drawer-link cat-drawer-btn"
-      data-cat="Tools"
-    >
-
-      <svg
-        width="18"
-        height="18"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 001.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-        ></path>
-      </svg>
-
-      <span>Tools</span>
-
-    </a>
-
-  </nav>
-
-
-  <!-- DRAWER FOOTER -->
-  <div class="mt-4 pt-3 border-top border-dark-subtle">
-
-    <small class="text-secondary">
-      Vrizmods
-    </small>
-
-    <div class="text-secondary small mt-1">
-      Aplikasi • Games • Tools
-    </div>
-
-  </div>
-
-</div>
-
-  </div>  <!-- =========================================================
-       MAIN
-       ========================================================= -->  <main class="container-fluid max-w-lg px-3 py-4"><!-- =======================================================
-     HERO
-     ======================================================= -->
-<section
-  class="vriz-hero text-center mb-4"
-  aria-labelledby="heroTitle"
->
-
-  <div class="hero-content">
-
-    <span
-      class="d-inline-block mb-2 small fw-semibold text-secondary"
-    >
-      VRIZMODS
-    </span>
-
-    <h1
-      id="heroTitle"
-      class="hero-title mb-2"
-    >
-      Pustaka Aplikasi Modern
-    </h1>
-
-    <p class="hero-subtitle mb-4">
-      Temukan aplikasi, game, dan tools pilihan
-      dalam satu tempat.
-    </p>
-
-
-    <!-- SEARCH -->
-    <div class="search-wrapper mx-auto">
-
-      <svg
-        class="search-icon"
-        width="18"
-        height="18"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <circle
-          cx="11"
-          cy="11"
-          r="8"
-        ></circle>
-
-        <path
-          d="M21 21l-4.35-4.35"
-          stroke-linecap="round"
-        ></path>
-      </svg>
-
-      <input
-        type="search"
-        id="searchInput"
-        class="search-input"
-        placeholder="Cari aplikasi atau game..."
-        autocomplete="off"
-        spellcheck="false"
-        aria-label="Cari aplikasi atau game"
-      >
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     CATEGORY
-     ======================================================= -->
-<section
-  class="category-nav-wrapper mb-4"
-  aria-label="Filter kategori"
->
-
-  <div
-    class="category-scroll"
-    id="categoryFilter"
-    role="tablist"
-    aria-label="Kategori aplikasi"
-  >
-
-    <button
-      type="button"
-      class="cat-chip active"
-      data-cat="ALL"
-      role="tab"
-      aria-selected="true"
-    >
-      Semua
-    </button>
-
-    <button
-      type="button"
-      class="cat-chip"
-      data-cat="Games"
-      role="tab"
-      aria-selected="false"
-    >
-      Games
-    </button>
-
-    <button
-      type="button"
-      class="cat-chip"
-      data-cat="Apps"
-      role="tab"
-      aria-selected="false"
-    >
-      Apps
-    </button>
-
-    <button
-      type="button"
-      class="cat-chip"
-      data-cat="Tools"
-      role="tab"
-      aria-selected="false"
-    >
-      Tools
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     CATALOG HEADER
-     ======================================================= -->
-<section class="mb-3">
-
-  <div class="d-flex align-items-end justify-content-between gap-3">
-
-    <div>
-
-      <div class="small text-secondary mb-1">
-        Koleksi terbaru
-      </div>
-
-      <h2 class="section-title mb-0">
-        Rekomendasi
-      </h2>
-
-    </div>
-
-    <span
-      class="section-badge"
-      id="appCount"
-      aria-live="polite"
-    >
-      0 Berkas
-    </span>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     APP CATALOG
-     ======================================================= -->
-<section
-  aria-label="Daftar aplikasi"
->
-
-  <div
-    class="row g-3"
-    id="appGrid"
-  >
-
-    <!-- LOADING STATE -->
-    <div class="col-12">
+    <!-- =======================================================
+         CATALOG HEADER
+         ======================================================= -->
+
+    <section class="mb-3">
 
       <div
-        class="vriz-card p-4 text-center"
+        class="d-flex align-items-end justify-content-between gap-3"
       >
 
-        <div
-          class="spinner-border spinner-border-sm text-indigo"
-          role="status"
-          aria-label="Memuat"
-        ></div>
+        <div>
 
-        <p class="text-secondary small mt-3 mb-0">
-          Memuat katalog...
-        </p>
+          <div class="small text-secondary mb-1">
+            Koleksi terbaru
+          </div>
+
+          <h2 class="section-title mb-0">
+            Rekomendasi
+          </h2>
+
+        </div>
+
+        <span
+          class="section-badge"
+          id="appCount"
+          aria-live="polite"
+        >
+          0 Berkas
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         IKLAN 3 — 468x60
+         ======================================================= -->
+
+    <div
+      class="vriz-ad banner-ad"
+      id="bannerAd"
+    >
+
+      <div style="width:100%;">
+
+        <span class="vriz-ad-label">
+          Advertisement
+        </span>
+
+        <div
+          style="
+            width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+          "
+        >
+
+          <script>
+            atOptions = {
+              'key' : '64e57f1ad76e50ba412ab820759c69bb',
+              'format' : 'iframe',
+              'height' : 60,
+              'width' : 468,
+              'params' : {}
+            };
+          </script>
+
+          <script
+            src="https://versatilesentiment.com/64e57f1ad76e50ba412ab820759c69bb/invoke.js"
+          ></script>
+
+        </div>
 
       </div>
 
     </div>
 
-  </div>
 
-</section>
+    <!-- =======================================================
+         APP CATALOG
+         ======================================================= -->
 
-  </main>  <!-- =========================================================
+    <section
+      aria-label="Daftar aplikasi"
+    >
+
+      <div
+        class="row g-3"
+        id="appGrid"
+      >
+
+        <!-- LOADING STATE -->
+
+        <div class="col-12">
+
+          <div
+            class="vriz-card p-4 text-center"
+          >
+
+            <div
+              class="spinner-border spinner-border-sm text-indigo"
+              role="status"
+              aria-label="Memuat"
+            ></div>
+
+            <p class="text-secondary small mt-3 mb-0">
+              Memuat katalog...
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================================================
        BOOTSTRAP JS
-       ========================================================= -->  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  <!-- Vrizmods Application Logic
-       Jangan diubah -->  <script src="/js/app.js"></script></body>
+       ========================================================= -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+
+  <!-- =========================================================
+       VRIZMODS APPLICATION LOGIC
+       Jangan diubah
+       ========================================================= -->
+
+  <script src="/js/app.js"></script>
+
+
+</body>
 </html>
