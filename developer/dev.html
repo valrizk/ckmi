@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Console - Vrizmods</title>
+  <link rel="icon" type="image/x-icon" href="/media/favico.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/developer/dev.css">
+</head>
+<body>
+
+  <main class="container py-5" style="max-width: 700px;">
+    
+    <!-- BOX LOGIN DEV -->
+    <div id="devLoginBox" class="dev-card p-4">
+      <h4 class="fw-bold text-white text-center mb-3">Dev Access Control</h4>
+      <form id="devLoginForm">
+        <div class="mb-3">
+          <label class="form-label text-secondary small">Username</label>
+          <input type="text" id="devUser" class="dev-input" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label class="form-label text-secondary small">Password</label>
+          <input type="password" id="devPass" class="dev-input" required>
+        </div>
+        <button type="submit" class="btn btn-indigo w-100 py-2">Authentication</button>
+      </form>
+    </div>
+
+    <!-- DASHBOARD DEV -->
+    <div id="devDashboard" class="d-none">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h4 class="fw-bold text-white mb-0">Developer Custom Page Builder</h4>
+          <p class="text-secondary small mb-0">Multi-Root Ad & Custom Script Manager</p>
+        </div>
+        <button id="btnDevLogout" class="btn btn-outline-danger btn-sm rounded-3">Logout</button>
+      </div>
+
+      <div class="dev-card p-4">
+        <form id="createPageForm">
+          <div class="mb-3">
+            <label class="form-label text-secondary small">Nama Page Slug (Misal: ads1)</label>
+            <input type="text" id="pageSlug" class="dev-input" placeholder="ads1" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label text-secondary small">Paste Code HTML</label>
+            <textarea id="codeHtml" class="dev-input font-monospace" rows="4" placeholder="<div>Your HTML Ad Code</div>"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label text-secondary small">Paste Code CSS</label>
+            <textarea id="codeCss" class="dev-input font-monospace" rows="3" placeholder="body { background: #000; }"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label text-secondary small">Paste Code JS</label>
+            <textarea id="codeJs" class="dev-input font-monospace" rows="3" placeholder="console.log('Ad Loaded');"></textarea>
+          </div>
+
+          <!-- CHECKBOX FILE TAMBAHAN (sw.js dll) -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hasExtraFile">
+            <label class="form-check-label text-white small" for="hasExtraFile">
+              Ceklis jika punya file tambahan di Root Directory (Contoh: sw.js)
+            </label>
+          </div>
+
+          <div id="extraFileContainer" class="mb-3 d-none">
+            <div class="mb-2">
+              <label class="form-label text-secondary small">Nama File Tambahan</label>
+              <input type="text" id="extraFileName" class="dev-input" placeholder="sw.js">
+            </div>
+            <div>
+              <label class="form-label text-secondary small">Isi Script File Tambahan</label>
+              <textarea id="extraFileContent" class="dev-input font-monospace" rows="4" placeholder="importScripts('https://adnetwork.com/sw.js');"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" id="btnCreatePage" class="btn btn-indigo w-100 py-2">Create Custom Page</button>
+        </form>
+      </div>
+
+      <!-- STATUS RESULT URL -->
+      <div id="resultBox" class="dev-card p-3 mt-4 d-none">
+        <h6 class="text-white small fw-bold mb-1">Page Generated Successfully!</h6>
+        <p class="text-secondary small mb-2">Akses Endpoint Encoded:</p>
+        <div class="bg-dark p-2 rounded border border-secondary border-opacity-25 mb-2">
+          <a id="generatedUrl" href="#" target="_blank" class="text-info text-break small"></a>
+        </div>
+        <p class="text-muted text-break" style="font-size: 0.7rem;" id="generatedPath"></p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="/developer/dev.js"></script>
+</body>
+</html>
