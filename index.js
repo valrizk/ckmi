@@ -277,7 +277,7 @@ app.use((req, res) => {
 });
 
 // Jalankan Server (Hanya jika di-run secara lokal)
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`Server Vrizmods aktif di http://localhost:${PORT}`);
   });
